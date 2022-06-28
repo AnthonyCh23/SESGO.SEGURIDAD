@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservicio-seguridad-deploy
+  labels:
+    name: microservicio-seguridad-deploy
+    app: microservice
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: microservicio-seguridad
+      type: microservice
+  template:
+    metadata: 
+      name: microservicio-seguridad-pod
+      labels:
+        app: microservicio-seguridad
+        type: microservice
+    spec:
+      containers:
+        - name: microservicio-seguridad 
+          image: m0sh1n/seguridadsesgoapi:latest
+          ports:
+          - containerPort: 80
+          env:
+            - name: ConnectionStrings__DefaultConnection
+              value: Server=mssql-service;Database=SESGO;User=sa;Password=$VaxiDrez2025
+            #- name: serverAPI__host
+             # value: microservice-gateway-webclient-service
