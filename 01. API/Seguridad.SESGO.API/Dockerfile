@@ -6,8 +6,8 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["01. API/Seguridad.SESGO.API/Seguridad.SESGO.API.csproj", "01. API/Seguridad.SESGO.API/"]
-COPY ["02. Services/Seguridad.Service.EventHandlers/Seguridad.Service.EventHandlers.csproj", "02. Services/Seguridad.Service.EventHandlers/"]
+COPY ["Seguridad.SESGO.API.csproj", "./"]
+COPY ["Seguridad.Service.EventHandlers.csproj", "./"]
 COPY ["03. Persistence/Seguridad.Persistence.Database/Seguridad.Persistence.Database.csproj", "03. Persistence/Seguridad.Persistence.Database/"]
 COPY ["04. Models/Seguridad.Domain/Seguridad.Domain.csproj", "04. Models/Seguridad.Domain/"]
 COPY ["02. Services/Seguridad.Service.Queries/Seguridad.Service.Queries.csproj", "02. Services/Seguridad.Service.Queries/"]
